@@ -1,4 +1,13 @@
 package com.co.sofka.Perfect_cosmetic.values;
 
-public class GenderId {
+import co.com.sofka.domain.generic.Identity;
+
+public class GenderId extends Identity {
+    public GenderId(String id) {
+        super(id);
+
+    }
+    public static GenderId from(String id){
+        return new GenderId(id);
+    }
 }
