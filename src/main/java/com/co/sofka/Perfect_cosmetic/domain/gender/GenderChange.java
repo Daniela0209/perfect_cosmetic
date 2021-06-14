@@ -1,7 +1,7 @@
-package com.co.sofka.Perfect_cosmetic;
+package com.co.sofka.Perfect_cosmetic.domain.gender;
 
 import co.com.sofka.domain.generic.EventChange;
-import com.co.sofka.Perfect_cosmetic.events.GenderCreated;
+import com.co.sofka.Perfect_cosmetic.domain.gender.events.GenderCreated;
 
 public class GenderChange extends EventChange {
 

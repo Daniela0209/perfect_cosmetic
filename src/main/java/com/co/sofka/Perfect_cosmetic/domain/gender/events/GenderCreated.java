@@ -1,10 +1,10 @@
-package com.co.sofka.Perfect_cosmetic.events;
+package com.co.sofka.Perfect_cosmetic.domain.gender.events;
 
 import co.com.sofka.domain.generic.DomainEvent;
-import com.co.sofka.Perfect_cosmetic.values.Feminine;
-import com.co.sofka.Perfect_cosmetic.values.GenderId;
-import com.co.sofka.Perfect_cosmetic.values.Male;
-import com.co.sofka.Perfect_cosmetic.values.Other;
+import com.co.sofka.Perfect_cosmetic.domain.gender.values.Other;
+import com.co.sofka.Perfect_cosmetic.domain.gender.values.Feminine;
+import com.co.sofka.Perfect_cosmetic.domain.gender.values.GenderId;
+import com.co.sofka.Perfect_cosmetic.domain.gender.values.Male;
 
 public class GenderCreated extends DomainEvent {
 

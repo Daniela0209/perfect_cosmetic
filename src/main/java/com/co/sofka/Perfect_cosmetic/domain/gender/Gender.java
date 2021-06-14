@@ -1,12 +1,12 @@
-package com.co.sofka.Perfect_cosmetic;
+package com.co.sofka.Perfect_cosmetic.domain.gender;
 
 import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
-import com.co.sofka.Perfect_cosmetic.events.GenderCreated;
-import com.co.sofka.Perfect_cosmetic.values.Feminine;
-import com.co.sofka.Perfect_cosmetic.values.GenderId;
-import com.co.sofka.Perfect_cosmetic.values.Male;
-import com.co.sofka.Perfect_cosmetic.values.Other;
+import com.co.sofka.Perfect_cosmetic.domain.gender.events.GenderCreated;
+import com.co.sofka.Perfect_cosmetic.domain.gender.values.Other;
+import com.co.sofka.Perfect_cosmetic.domain.gender.values.Feminine;
+import com.co.sofka.Perfect_cosmetic.domain.gender.values.GenderId;
+import com.co.sofka.Perfect_cosmetic.domain.gender.values.Male;
 
 import java.util.List;
 

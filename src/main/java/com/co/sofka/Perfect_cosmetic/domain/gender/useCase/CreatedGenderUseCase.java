@@ -1,10 +1,10 @@
-package com.co.sofka.Perfect_cosmetic.useCase;
+package com.co.sofka.Perfect_cosmetic.domain.gender.useCase;
 
 import co.com.sofka.business.generic.UseCase;
 import co.com.sofka.business.support.RequestCommand;
 import co.com.sofka.business.support.ResponseEvents;
-import com.co.sofka.Perfect_cosmetic.Gender;
-import com.co.sofka.Perfect_cosmetic.commands.CreateGender;
+import com.co.sofka.Perfect_cosmetic.domain.gender.Gender;
+import com.co.sofka.Perfect_cosmetic.domain.gender.commands.CreateGender;
 
 public class CreatedGenderUseCase extends UseCase<RequestCommand<CreateGender>, ResponseEvents> {
 

@@ -1,10 +1,10 @@
-package com.co.sofka.Perfect_cosmetic.commands;
+package com.co.sofka.Perfect_cosmetic.domain.gender.commands;
 
 import co.com.sofka.domain.generic.Command;
-import com.co.sofka.Perfect_cosmetic.values.Feminine;
-import com.co.sofka.Perfect_cosmetic.values.GenderId;
-import com.co.sofka.Perfect_cosmetic.values.Male;
-import com.co.sofka.Perfect_cosmetic.values.Other;
+import com.co.sofka.Perfect_cosmetic.domain.gender.values.GenderId;
+import com.co.sofka.Perfect_cosmetic.domain.gender.values.Male;
+import com.co.sofka.Perfect_cosmetic.domain.gender.values.Other;
+import com.co.sofka.Perfect_cosmetic.domain.gender.values.Feminine;
 
 public class CreateGender implements Command {
 
