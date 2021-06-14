@@ -14,7 +14,7 @@ public class GenderCreated extends DomainEvent {
     private final Other other;
 
     public GenderCreated(GenderId genderId, Feminine feminine, Male male, Other other) {
-        super("Perfectcosmetic.gender,create");
+        super("Perfectcosmetic.gender.create");
         this.genderId = genderId;
         this.feminine = feminine;
         this.male = male;
