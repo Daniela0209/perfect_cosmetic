@@ -13,4 +13,29 @@ import org.junit.jupiter.api.Test;
 
 class CreatedModuleUseCaseTest {
 
+    @Test
+
+    public void CreateModuleTest(){
+
+        var command = new CreateModule(ModuleId.of("0"), new NameModule("Delineados"), new BannerUrl("https://i.ytimg.com/vi/Uvp9eONR7Fg/hqdefault.jpg"));
+
+        ModuleCreated moduleCreated = executeUseCase(command);
+
+        Assertions.assertEquals("0", moduleCreated.ModuleId().value());
+
+    }
+    private ModuleCreated executeUseCase (CreateModule command){
+        var usecase = new CreatedModuleUseCase();
+
+        var events = UseCaseHandler.getInstance()
+                .syncExecutor(usecase, new RequestCommand<>(command))
+                .orElseThrow()
+                .getDomainEvents();
+
+        var moduleCreated = (ModuleCreated) events.get(0);
+        return moduleCreated;
+    }
+
+}
+
 }
