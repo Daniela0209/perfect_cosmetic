@@ -21,6 +21,7 @@ class CreatedCommentsUserCaseTest {
         CommentsCreated commentsCreated = executeUseCase(command);
 
         Assertions.assertEquals("0", commentsCreated.CommentsId().value());
+
     }
 
     private CommentsCreated executeUseCase (CreateComments command){
@@ -31,8 +32,8 @@ class CreatedCommentsUserCaseTest {
             .orElseThrow()
             .getDomainEvents();
 
-    var commentsCreated = (CommentsCreated) events.get(0);
-    return commentsCreated;
+        var commentsCreated = (CommentsCreated) events.get(0);
+        return commentsCreated;
 
 
     }
