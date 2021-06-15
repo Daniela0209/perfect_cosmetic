@@ -1,22 +1,16 @@
 package com.co.sofka.Perfect_cosmetic.domain.gender.entity;
 
 import co.com.sofka.domain.generic.Entity;
-import com.co.sofka.Perfect_cosmetic.domain.gender.values.BannerUrl;
-import com.co.sofka.Perfect_cosmetic.domain.gender.values.ModuleId;
-import com.co.sofka.Perfect_cosmetic.domain.gender.values.NameModule;
+import com.co.sofka.Perfect_cosmetic.domain.gender.values.*;
 
 public class Module extends Entity<ModuleId> {
 
+    protected ModuleId moduleId;
+    protected NameModule nameModule;
+    protected BannerUrl bannerUrl;
 
-    private final ModuleId moduleId;
-    private final NameModule nameModule;
-    private final BannerUrl bannerUrl;
 
-
-    public Module(ModuleId entityId, NameModule nameModule, BannerUrl bannerUrl, ModuleId moduleId, NameModule nameModule1, BannerUrl bannerUrl1) {
+    public Module(ModuleId entityId, NameModule nameModule, BannerUrl bannerUrl) {
         super(entityId);
-        this.moduleId = moduleId;
-        this.nameModule = nameModule1;
-        this.bannerUrl = bannerUrl1;
     }
 }

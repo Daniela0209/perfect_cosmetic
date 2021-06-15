@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 
 
 
-class CreatedCommentsUserCaseTest {
+class CreatedCommentsUseCaseTest {
 
     @Test
     public void CreateCommentsTest(){
@@ -25,7 +25,7 @@ class CreatedCommentsUserCaseTest {
     }
 
     private CommentsCreated executeUseCase (CreateComments command){
-        var usecase = new CreatedCommentsUserCase();
+        var usecase = new CreatedCommentsUseCase();
 
     var events = UseCaseHandler.getInstance()
             .syncExecutor(usecase, new RequestCommand<>(command))

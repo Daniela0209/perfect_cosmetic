@@ -19,4 +19,16 @@ public class ModuleCreated extends DomainEvent {
         this.nameModule = nameModule;
         this.bannerUrl = bannerUrl;
     }
+
+    public ModuleId ModuleId() {
+        return moduleId;
+    }
+
+    public NameModule NameModule() {
+        return nameModule;
+    }
+
+    public BannerUrl BannerUrl() {
+        return bannerUrl;
+    }
 }

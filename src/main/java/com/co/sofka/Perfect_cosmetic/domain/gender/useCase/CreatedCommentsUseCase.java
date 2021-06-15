@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class CreatedCommentsUserCase extends UseCase<RequestCommand<CreateComments>, ResponseEvents> {
+public class CreatedCommentsUseCase extends UseCase<RequestCommand<CreateComments>, ResponseEvents> {
 
 
     @Override

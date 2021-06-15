@@ -3,17 +3,16 @@ package com.co.sofka.Perfect_cosmetic.domain.gender.values;
 import co.com.sofka.domain.generic.Identity;
 import co.com.sofka.domain.generic.ValueObject;
 
-public class ModuleId extends Identity implements ValueObject<String> {
+public class ModuleId extends Identity{
 
-    private final String value;
-
-    public ModuleId (String value){
-        this.value= value;
+    public ModuleId(String id) {
+        super(id);
     }
 
-    @Override
-    public String value(){
-        return value;
+    public static ModuleId of(String id){
+        return new ModuleId(id);
     }
+
+
 }
 
