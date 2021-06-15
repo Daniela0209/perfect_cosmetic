@@ -10,8 +10,8 @@ public class CreatedModuleUseCase extends UseCase<RequestCommand<CreateModule>, 
 
     @Override
     public void executeUseCase(RequestCommand<CreateModule> createModuleRequestCommand) {
-
         var module = createModuleRequestCommand.getCommand();
+
 
     }
 }
