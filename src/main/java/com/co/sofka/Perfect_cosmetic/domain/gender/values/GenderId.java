@@ -7,7 +7,7 @@ public class GenderId extends Identity {
         super(id);
 
     }
-    public static GenderId from(String id){
+    public static GenderId of(String id){
         return new GenderId(id);
     }
 }

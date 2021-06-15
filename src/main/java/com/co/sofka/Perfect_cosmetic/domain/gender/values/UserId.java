@@ -1,16 +1,13 @@
 package com.co.sofka.Perfect_cosmetic.domain.gender.values;
 
-import co.com.sofka.domain.generic.ValueObject;
+import co.com.sofka.domain.generic.Identity;
 
-public class UserId implements ValueObject<String> {
-    private final String value;
+public class UserId extends Identity {
+    public UserId(String id) {
+        super(id);
 
-    public UserId(String value){
-        this.value= value;
     }
-
-    @Override
-    public String value(){
-        return value;
+    public static UserId of(String id){
+        return new UserId(id);
     }
 }
