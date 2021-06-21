@@ -16,7 +16,7 @@ class CreatedGenderUseCaseTest {
 
     @Test
     public void createGenderTest(){
-        var command = new CreateGender(GenderId.of("0"), new Feminine("Femenino"), new Male("Masculino"), new Other("Otro"));
+        var command = new CreateGender(GenderId.of("0"), new Feminine("Femenino"), new Male("Masculino"), new Other("Otro"), userGender);
 
         GenderCreated genderCreated = executeUseCase(command);
 

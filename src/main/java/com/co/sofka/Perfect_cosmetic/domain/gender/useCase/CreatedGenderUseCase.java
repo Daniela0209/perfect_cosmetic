@@ -20,8 +20,9 @@ public class CreatedGenderUseCase extends UseCase<RequestCommand<CreateGender>, 
 
     public void executeUseCase(RequestCommand<CreateGender> createGenderRequestCommand){
         var command = createGenderRequestCommand.getCommand();
-        var gender = new Gender(command.GenderId(), command.Feminine(), command.Male(), command.Other());
-        emit().onResponse(new ResponseEvents(gender.getUncommittedChanges()));
+        var gender = new Gender(command.GenderId(), command.Feminine(), command.Male(), command.Other(),command.UserGender());
+        iGenderRepository.save(gender);
+        emit().onResponse(new Response(gender));
     }
 
     public static class Response implements UseCase.ResponseValues{
@@ -29,8 +30,8 @@ public class CreatedGenderUseCase extends UseCase<RequestCommand<CreateGender>, 
         private Gender response;
 
 
-        public Response(Gender person) {
-            this.response=person;
+        public Response(Gender gender) {
+            this.response=gender;
         }
 
         public Gender getResponse() {

@@ -32,6 +32,6 @@ public final class GenderBuilder {
     }
 
     public Gender build() {
-        return new Gender(null, feminine, male, other);
+        return new Gender(null, feminine, male, other, command.UserGender());
     }
 }
