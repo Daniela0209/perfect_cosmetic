@@ -11,7 +11,22 @@ public class Users extends Entity<UsersId> {
     protected NameUser nameUser;
     protected Email email;
 
-    public Users(UsersId entityId, NameUser nameUser,Email email) {
+    public Users(UsersId entityId, UsersId usersId, NameUser nameUser, Email email) {
         super(entityId);
+        this.usersId = usersId;
+        this.nameUser = nameUser;
+        this.email = email;
+    }
+
+    public UsersId getUsersId() {
+        return usersId;
+    }
+
+    public NameUser getNameUser() {
+        return nameUser;
+    }
+
+    public Email getEmail() {
+        return email;
     }
 }

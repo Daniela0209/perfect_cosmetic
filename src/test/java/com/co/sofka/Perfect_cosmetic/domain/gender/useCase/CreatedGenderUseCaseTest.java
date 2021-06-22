@@ -1,30 +1,48 @@
-package com.co.sofka.Perfect_cosmetic.domain.gender.useCase;
+/*package com.co.sofka.Perfect_cosmetic.domain.gender.useCase;//*
 
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.support.RequestCommand;
+import com.co.sofka.Perfect_cosmetic.domain.gender.Gender;
 import com.co.sofka.Perfect_cosmetic.domain.gender.commands.CreateGender;
 import com.co.sofka.Perfect_cosmetic.domain.gender.events.GenderCreated;
-import com.co.sofka.Perfect_cosmetic.domain.gender.values.Feminine;
-import com.co.sofka.Perfect_cosmetic.domain.gender.values.GenderId;
-import com.co.sofka.Perfect_cosmetic.domain.gender.values.Male;
-import com.co.sofka.Perfect_cosmetic.domain.gender.values.Other;
+import com.co.sofka.Perfect_cosmetic.domain.gender.repository.IGenderRepository;
+import com.co.sofka.Perfect_cosmetic.domain.gender.values.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mockito;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.CrudRepository;
+
+import static org.mockito.ArgumentMatchers.any;
 
 
 class CreatedGenderUseCaseTest {
 
+   @Autowired
+    private CreatedGenderUseCase useCase;
+
+    @InjectMocks
+    private IGenderRepository iGenderRepository;
+
+    @InjectMocks
+    private CrudRepository crudRepository;
+
+
     @Test
     public void createGenderTest(){
-        var command = new CreateGender(GenderId.of("0"), new Feminine("Femenino"), new Male("Masculino"), new Other("Otro"), userGender);
+        Mockito.when(crudRepository.save(any())).thenReturn(new Gender(GenderId.of("23"),new Feminine("femenino"),new Male("masculino"),new Other("otro"),new UserGender("Daniela")));
 
-        GenderCreated genderCreated = executeUseCase(command);
+        var command = new CreateGender(GenderId.of("23"), new Feminine("femenino"),new Male("masculino"),new Other("otro"),new UserGender("Daniela"));
 
-        Assertions.assertEquals("0", genderCreated.GenderId().value());
+        GenderCreated genderCreated = executedUseCase(command);
+
+        Assertions.assertEquals("23",genderCreated.GenderId().value());
+        System.out.println("Hola bienvenido");
 
     }
 
-    private GenderCreated executeUseCase (CreateGender command){
+    private GenderCreated executedUseCase (CreateGender command){
         var usecase =new CreatedGenderUseCase();
 
         var events = UseCaseHandler.getInstance()
@@ -35,4 +53,4 @@ class CreatedGenderUseCaseTest {
         var genderCreated =(GenderCreated) events.get(0);
         return genderCreated;
     }
-}
+}*/
