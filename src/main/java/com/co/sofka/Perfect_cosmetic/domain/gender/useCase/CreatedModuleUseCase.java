@@ -19,7 +19,7 @@ public class CreatedModuleUseCase extends UseCase<RequestCommand<CreateModule>, 
     public void executeUseCase(RequestCommand<CreateModule> createModuleRequestCommand){
         var command = createModuleRequestCommand.getCommand();
         var module = new Module(command.ModuleId(),command.NameModule(),command.BannerUrl());
-        iModuleRepository.save(module);
+        iModuleRepository.equals(module);
         emit().onResponse(new Response(module));
 
 
