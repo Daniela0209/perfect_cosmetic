@@ -30,7 +30,7 @@ class CreatedModuleUseCaseTest {
         var events = UseCaseHandler.getInstance()
                 .syncExecutor(usecase, new RequestCommand<>(command))
                 .orElseThrow()
-                .getDomainEvents();
+                .getResponse();
 
         var moduleCreated = (ModuleCreated) events.get(0);
         return moduleCreated;
