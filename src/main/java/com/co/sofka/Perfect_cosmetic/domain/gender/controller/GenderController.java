@@ -20,7 +20,7 @@ public class GenderController {
     private CreatedGenderUseCase useCase;
 
     @PostMapping(value = "api/{genderId}/{feminine}/{male}/{other}/{userGender}")
-    public String save(@PathVariable("id")String genderId,
+    public String save(@PathVariable("genderId")String genderId,
                        @PathVariable("feminine") String feminine,
                        @PathVariable("male") String male,
                        @PathVariable ("other") String other,
