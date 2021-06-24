@@ -8,25 +8,25 @@ import com.co.sofka.Perfect_cosmetic.domain.gender.repository.IModuleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
 @Service
-public class CreatedModuleUseCase extends UseCase<RequestCommand<CreateModule>, CreatedModuleUseCase.Response>  {
+public class CreatedModuleUseCase extends UseCase<RequestCommand<CreateModule>, CreatedModuleUseCase.Response> {
 
     @Autowired
     private IModuleRepository iModuleRepository;
 
     @Override
-    public void executeUseCase(RequestCommand<CreateModule> createModuleRequestCommand){
+    public void executeUseCase (RequestCommand<CreateModule> createModuleRequestCommand){
         var command = createModuleRequestCommand.getCommand();
         var module = new Module(command.ModuleId(),command.NameModule(),command.BannerUrl());
-        iModuleRepository.equals(module);
+        iModuleRepository.save(module);
         emit().onResponse(new Response(module));
 
-
     }
-    public static class Response implements UseCase.ResponseValues{
+
+    public static class Response implements UseCase.ResponseValues {
 
         private Module response;
+
 
         public Response(Module module) {
             this.response = module;
@@ -39,5 +39,6 @@ public class CreatedModuleUseCase extends UseCase<RequestCommand<CreateModule>, 
         public void setResponse(Module response) {
             this.response = response;
         }
-    }
+
+}
 }

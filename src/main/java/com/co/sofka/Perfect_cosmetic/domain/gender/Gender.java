@@ -5,7 +5,7 @@ import co.com.sofka.domain.generic.AggregateRoot;
 import com.co.sofka.Perfect_cosmetic.domain.gender.values.*;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collation = "Usuarios")
+@Document(collation = "Genero")
 public class Gender extends AggregateRoot<GenderId> {
 
     protected Feminine feminine;

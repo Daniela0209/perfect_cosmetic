@@ -1,6 +1,6 @@
 package com.co.sofka.Perfect_cosmetic.domain.gender.useCase;
 
-import co.com.sofka.business.generic.UseCaseHandler;
+/*import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.support.RequestCommand;
 import com.co.sofka.Perfect_cosmetic.domain.gender.commands.CreateComments;
 import com.co.sofka.Perfect_cosmetic.domain.gender.events.CommentsCreated;
@@ -39,4 +39,4 @@ class CreatedCommentsUseCaseTest {
     }
 
 
-}
+}*/

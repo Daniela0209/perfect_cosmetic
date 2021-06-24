@@ -2,7 +2,10 @@ package com.co.sofka.Perfect_cosmetic.domain.gender.entity;
 
 import co.com.sofka.domain.generic.Entity;
 import com.co.sofka.Perfect_cosmetic.domain.gender.values.*;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+
+@Document(collation = "Modulos")
 public class Module extends Entity<ModuleId> {
 
     protected ModuleId moduleId;
@@ -11,7 +14,7 @@ public class Module extends Entity<ModuleId> {
 
     public Module(ModuleId entityId, NameModule nameModule, BannerUrl bannerUrl) {
         super(entityId);
-        this.moduleId = entityId;
+        this.moduleId = moduleId;
         this.nameModule = nameModule;
         this.bannerUrl = bannerUrl;
     }

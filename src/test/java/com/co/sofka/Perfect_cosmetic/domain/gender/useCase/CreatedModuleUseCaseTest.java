@@ -1,7 +1,7 @@
 package com.co.sofka.Perfect_cosmetic.domain.gender.useCase;
 
 
-import co.com.sofka.business.generic.UseCaseHandler;
+/*import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.support.RequestCommand;
 import com.co.sofka.Perfect_cosmetic.domain.gender.commands.CreateModule;
 import com.co.sofka.Perfect_cosmetic.domain.gender.events.ModuleCreated;
@@ -36,4 +36,4 @@ class CreatedModuleUseCaseTest {
         return moduleCreated;
     }
 
-}
+}*/

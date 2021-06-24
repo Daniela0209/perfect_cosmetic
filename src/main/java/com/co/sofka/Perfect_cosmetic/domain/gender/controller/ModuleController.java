@@ -1,6 +1,7 @@
 package com.co.sofka.Perfect_cosmetic.domain.gender.controller;
 
 
+
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.support.RequestCommand;
 import com.co.sofka.Perfect_cosmetic.domain.gender.commands.CreateModule;
@@ -9,7 +10,6 @@ import com.co.sofka.Perfect_cosmetic.domain.gender.values.BannerUrl;
 import com.co.sofka.Perfect_cosmetic.domain.gender.values.ModuleId;
 import com.co.sofka.Perfect_cosmetic.domain.gender.values.NameModule;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -28,7 +28,8 @@ public class ModuleController {
                        @PathVariable("bannerUrl")String bannerUrl){
         var command = new CreateModule(ModuleId.of(moduleId),new NameModule(nameModule),new BannerUrl(bannerUrl));
         CreatedModuleUseCase.Response moduleCreated = executedUseCase(command);
-        return (moduleCreated.getResponse().getModuleId().value()+" "+moduleCreated.getResponse().getNameModule().value()+" "+moduleCreated.getResponse().getBannerUrl().value());
+        return (moduleCreated.getResponse().getModuleId().value()+""+moduleCreated.getResponse().getNameModule().value()+""+moduleCreated.getResponse().getBannerUrl());
+
 
     }
     private CreatedModuleUseCase.Response executedUseCase(CreateModule command){

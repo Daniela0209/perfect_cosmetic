@@ -4,7 +4,9 @@ import co.com.sofka.domain.generic.Entity;
 import com.co.sofka.Perfect_cosmetic.domain.gender.values.Email;
 import com.co.sofka.Perfect_cosmetic.domain.gender.values.NameUser;
 import com.co.sofka.Perfect_cosmetic.domain.gender.values.UsersId;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document(collation = "Usuarios")
 public class Users extends Entity<UsersId> {
 
     protected UsersId usersId;
@@ -13,7 +15,7 @@ public class Users extends Entity<UsersId> {
 
     public Users(UsersId entityId, NameUser nameUser, Email email) {
         super(entityId);
-        this.usersId = entityId;
+        this.usersId = usersId;
         this.nameUser = nameUser;
         this.email = email;
     }

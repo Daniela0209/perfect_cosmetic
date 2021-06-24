@@ -4,7 +4,6 @@ import co.com.sofka.domain.generic.Identity;
 import co.com.sofka.domain.generic.ValueObject;
 
 public class ModuleId extends Identity{
-
     public ModuleId(String id) {
         super(id);
     }

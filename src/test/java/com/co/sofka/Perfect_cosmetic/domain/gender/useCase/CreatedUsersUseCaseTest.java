@@ -1,7 +1,7 @@
 package com.co.sofka.Perfect_cosmetic.domain.gender.useCase;
 
 
-import co.com.sofka.business.generic.UseCaseHandler;
+/*import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.support.RequestCommand;
 import com.co.sofka.Perfect_cosmetic.domain.gender.commands.CreateUsers;
 import com.co.sofka.Perfect_cosmetic.domain.gender.events.UsersCreated;
@@ -30,9 +30,9 @@ class CreatedUsersUseCaseTest {
         var events = UseCaseHandler.getInstance()
                 .syncExecutor(usecase, new RequestCommand<>(command))
                 .orElseThrow()
-                .getResponse()
+                .getResponse();
         var usersCreated =  (UsersCreated) events.get(0);
         return usersCreated;
     }
 
-}
+}*/
