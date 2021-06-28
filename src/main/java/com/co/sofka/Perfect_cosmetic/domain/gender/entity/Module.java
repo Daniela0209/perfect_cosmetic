@@ -12,8 +12,8 @@ public class Module extends Entity<ModuleId> {
     protected NameModule nameModule;
     protected BannerUrl bannerUrl;
 
-    public Module(ModuleId entityId, NameModule nameModule, BannerUrl bannerUrl) {
-        super(entityId);
+    public Module(ModuleId moduleId, NameModule nameModule, BannerUrl bannerUrl) {
+        super(moduleId);
         this.moduleId = moduleId;
         this.nameModule = nameModule;
         this.bannerUrl = bannerUrl;

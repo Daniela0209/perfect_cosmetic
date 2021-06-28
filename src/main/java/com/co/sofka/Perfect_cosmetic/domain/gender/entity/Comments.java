@@ -14,8 +14,8 @@ public class Comments extends Entity<CommentsId> {
  protected Contents contents;
 
 
-    public Comments(CommentsId entityId, UserId userId, Contents contents) {
-        super(entityId);
+    public Comments(CommentsId commentsId, UserId userId, Contents contents) {
+        super(commentsId);
         this.commentsId = commentsId;
         this.userId = userId;
         this.contents = contents;

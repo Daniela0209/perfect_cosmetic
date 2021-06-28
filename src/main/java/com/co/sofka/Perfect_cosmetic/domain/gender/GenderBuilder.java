@@ -1,6 +1,5 @@
-package com.co.sofka.Perfect_cosmetic.domain.gender.entity;
+package com.co.sofka.Perfect_cosmetic.domain.gender;
 
-import com.co.sofka.Perfect_cosmetic.domain.gender.Gender;
 import com.co.sofka.Perfect_cosmetic.domain.gender.values.Feminine;
 import com.co.sofka.Perfect_cosmetic.domain.gender.values.Male;
 import com.co.sofka.Perfect_cosmetic.domain.gender.values.Other;
