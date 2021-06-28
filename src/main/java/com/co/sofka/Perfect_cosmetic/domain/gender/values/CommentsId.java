@@ -5,11 +5,11 @@ import co.com.sofka.domain.generic.Identity;
 
 public class CommentsId extends Identity {
 
-    public CommentsId(String id) {
-        super(id);
+    public CommentsId(String idComments) {
+        super(idComments);
     }
 
-    public static CommentsId of(String id){
-        return new CommentsId(id);
+    public static CommentsId of(String idComments){
+        return new CommentsId(idComments);
     }
 }

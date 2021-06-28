@@ -18,7 +18,9 @@ public class CreatedUsersUseCase extends UseCase<RequestCommand<CreateUsers>, Cr
     @Override
     public void executeUseCase(RequestCommand<CreateUsers> createUsersRequestCommand){
         var command = createUsersRequestCommand.getCommand();
+        System.out.println("este es el caso de uso bajo command"+command.UsersId()+command.NameUser()+command.Email());
         var users = new Users(command.UsersId(), command.NameUser(),command.Email());
+        System.out.println("este es el caso de uso bajo users"+users.getUsersId()+users.getNameUser()+users.getEmail());
         iUserRepository.save(users);
         emit().onResponse(new Response(users));
     }

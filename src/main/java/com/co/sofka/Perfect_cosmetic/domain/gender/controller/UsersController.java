@@ -21,11 +21,12 @@ public class UsersController {
     @Autowired
     private CreatedUsersUseCase useCase;
 
-    @PostMapping(value = "api/{usersId}/{nameUser}/{email}")
-    public String save(@PathVariable("userId")String userId,
+    @PostMapping(value = "api/users/{usersId}/{nameUser}/{email}")
+    public String save(@PathVariable("usersId")String usersId,
                         @PathVariable("nameUser")String nameUser,
                         @PathVariable("email")String email){
-        var command = new CreateUsers(UsersId.of(userId),new NameUser(nameUser),new Email(email));
+        var command = new CreateUsers(UsersId.of(usersId),new NameUser(nameUser),new Email(email));
+        System.out.println("*********"+ nameUser);
         CreatedUsersUseCase.Response userCreated = executedUseCase(command);
         return (userCreated.getResponse().getUsersId().value()+" "+userCreated.getResponse().getNameUser().value()+" "+userCreated.getResponse().getEmail().value());
     }
