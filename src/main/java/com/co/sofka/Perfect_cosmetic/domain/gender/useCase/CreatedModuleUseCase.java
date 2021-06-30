@@ -1,10 +1,10 @@
-package com.co.sofka.Perfect_cosmetic.domain.gender.useCase;
+/*package com.co.sofka.Perfect_cosmetic.domain.gender.useCase;
 
 import co.com.sofka.business.generic.UseCase;
 import co.com.sofka.business.support.RequestCommand;
 import com.co.sofka.Perfect_cosmetic.domain.gender.commands.CreateModule;
 import com.co.sofka.Perfect_cosmetic.domain.gender.entity.Module;
-import com.co.sofka.Perfect_cosmetic.domain.gender.repository.IModuleRepository;
+import com.co.sofka.Perfect_cosmetic.domain.gender.repository.IModuleDataRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,13 +12,13 @@ import org.springframework.stereotype.Service;
 public class CreatedModuleUseCase extends UseCase<RequestCommand<CreateModule>, CreatedModuleUseCase.Response> {
 
     @Autowired
-    private IModuleRepository iModuleRepository;
+    private IModuleDataRepository iModuleDataRepository;
 
     @Override
     public void executeUseCase (RequestCommand<CreateModule> createModuleRequestCommand){
         var command = createModuleRequestCommand.getCommand();
         var module = new Module(command.ModuleId(),command.NameModule(),command.BannerUrl());
-        iModuleRepository.save(module);
+        iModuleDataRepository.save(module);
         emit().onResponse(new Response(module));
 
     }
@@ -41,4 +41,4 @@ public class CreatedModuleUseCase extends UseCase<RequestCommand<CreateModule>, 
         }
 
 }
-}
+}*/

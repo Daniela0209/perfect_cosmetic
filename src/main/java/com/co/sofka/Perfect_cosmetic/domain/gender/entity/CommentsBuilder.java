@@ -4,6 +4,7 @@ import com.co.sofka.Perfect_cosmetic.domain.gender.values.Contents;
 import com.co.sofka.Perfect_cosmetic.domain.gender.values.UserId;
 
 public final class CommentsBuilder {
+    protected String IdComments;
     protected UserId userId;
     protected Contents contents;
 
@@ -12,6 +13,11 @@ public final class CommentsBuilder {
 
     public static CommentsBuilder aComments() {
         return new CommentsBuilder();
+    }
+
+    public CommentsBuilder withIdComments(String IdComments) {
+        this.IdComments = IdComments;
+        return this;
     }
 
     public CommentsBuilder withUserId(UserId userId) {
@@ -25,6 +31,8 @@ public final class CommentsBuilder {
     }
 
     public Comments build() {
-        return new Comments(null, userId, contents);
+        Comments comments = new Comments(null, userId, contents);
+        comments.setIdComments(IdComments);
+        return comments;
     }
 }

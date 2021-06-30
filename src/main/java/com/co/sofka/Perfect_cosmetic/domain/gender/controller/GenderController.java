@@ -1,4 +1,4 @@
-package com.co.sofka.Perfect_cosmetic.domain.gender.controller;
+/*package com.co.sofka.Perfect_cosmetic.domain.gender.controller;
 
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.support.RequestCommand;
@@ -41,4 +41,4 @@ public class GenderController {
 
 
 
-}
+}*/

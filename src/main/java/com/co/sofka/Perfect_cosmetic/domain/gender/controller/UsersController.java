@@ -1,4 +1,4 @@
-package com.co.sofka.Perfect_cosmetic.domain.gender.controller;
+/*package com.co.sofka.Perfect_cosmetic.domain.gender.controller;
 
 
 import co.com.sofka.business.generic.UseCaseHandler;
@@ -21,7 +21,7 @@ public class UsersController {
     @Autowired
     private CreatedUsersUseCase useCase;
 
-    @PostMapping(value = "api/users/{usersId}/{nameUser}/{email}")
+    @PostMapping(value = "api/{usersId}/{nameUser}/{email}")
     public String save(@PathVariable("usersId")String usersId,
                         @PathVariable("nameUser")String nameUser,
                         @PathVariable("email")String email){
@@ -39,4 +39,4 @@ public class UsersController {
         var UsersCreated = events;
         return UsersCreated;
     }
-}
+}*/

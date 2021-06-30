@@ -1,11 +1,11 @@
-package com.co.sofka.Perfect_cosmetic.domain.gender.useCase;
+/*package com.co.sofka.Perfect_cosmetic.domain.gender.useCase;
 
 
 import co.com.sofka.business.generic.UseCase;
 import co.com.sofka.business.support.RequestCommand;
 import com.co.sofka.Perfect_cosmetic.domain.gender.commands.CreateUsers;
 import com.co.sofka.Perfect_cosmetic.domain.gender.entity.Users;
-import com.co.sofka.Perfect_cosmetic.domain.gender.repository.IUserRepository;
+import com.co.sofka.Perfect_cosmetic.domain.gender.repository.IUserDataRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 public class CreatedUsersUseCase extends UseCase<RequestCommand<CreateUsers>, CreatedUsersUseCase.Response> {
 
     @Autowired
-    private IUserRepository iUserRepository;
+    private IUserDataRepository iUserDataRepository;
 
     @Override
     public void executeUseCase(RequestCommand<CreateUsers> createUsersRequestCommand){
@@ -21,7 +21,7 @@ public class CreatedUsersUseCase extends UseCase<RequestCommand<CreateUsers>, Cr
         System.out.println("este es el caso de uso bajo command"+command.UsersId()+command.NameUser()+command.Email());
         var users = new Users(command.UsersId(), command.NameUser(),command.Email());
         System.out.println("este es el caso de uso bajo users"+users.getUsersId()+users.getNameUser()+users.getEmail());
-        iUserRepository.save(users);
+        iUserDataRepository.save(users);
         emit().onResponse(new Response(users));
     }
 
@@ -43,4 +43,4 @@ public class CreatedUsersUseCase extends UseCase<RequestCommand<CreateUsers>, Cr
         }
     }
 
-}
+}*/

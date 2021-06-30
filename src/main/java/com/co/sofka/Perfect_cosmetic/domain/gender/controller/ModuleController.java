@@ -1,4 +1,4 @@
-package com.co.sofka.Perfect_cosmetic.domain.gender.controller;
+/*package com.co.sofka.Perfect_cosmetic.domain.gender.controller;
 
 
 
@@ -40,4 +40,4 @@ public class ModuleController {
         var ModuleCreated = events;
         return ModuleCreated;
     }
-}
+}*/
