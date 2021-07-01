@@ -3,11 +3,13 @@ package com.co.sofka.Perfect_cosmetic.domain.gender;
 
 import co.com.sofka.domain.generic.AggregateRoot;
 import com.co.sofka.Perfect_cosmetic.domain.gender.values.*;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collation = "Genero")
 public class Gender extends AggregateRoot<GenderId> {
 
+    @Id
     protected Feminine feminine;
     protected Male male;
     protected Other other;

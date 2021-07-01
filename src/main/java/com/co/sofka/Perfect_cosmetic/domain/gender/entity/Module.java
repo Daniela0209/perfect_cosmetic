@@ -5,7 +5,7 @@ import com.co.sofka.Perfect_cosmetic.domain.gender.values.*;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 
-@Document(collation = "Modulos")
+@Document(collection = "Modulos")
 public class Module extends Entity<ModuleId> {
 
     protected ModuleId moduleId;

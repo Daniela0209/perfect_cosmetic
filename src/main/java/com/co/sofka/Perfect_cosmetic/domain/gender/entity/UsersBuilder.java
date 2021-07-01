@@ -4,6 +4,7 @@ import com.co.sofka.Perfect_cosmetic.domain.gender.values.Email;
 import com.co.sofka.Perfect_cosmetic.domain.gender.values.NameUser;
 
 public final class UsersBuilder {
+    protected String idUsers;
     protected NameUser nameUser;
     protected Email email;
 
@@ -12,6 +13,11 @@ public final class UsersBuilder {
 
     public static UsersBuilder anUsers() {
         return new UsersBuilder();
+    }
+
+    public UsersBuilder withIdUsers(String idUsers) {
+        this.idUsers = idUsers;
+        return this;
     }
 
     public UsersBuilder withNameUser(NameUser nameUser) {
@@ -25,6 +31,8 @@ public final class UsersBuilder {
     }
 
     public Users build() {
-        return new Users(null, nameUser, email);
+        Users users = new Users(null, nameUser, email);
+        users.setIdUsers(idUsers);
+        return users;
     }
 }

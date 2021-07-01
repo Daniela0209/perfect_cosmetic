@@ -20,21 +20,23 @@ public class CommentsController {
     @Autowired
     private CreatedCommentsUseCase useCase;
 
+
     @Autowired
     private TransformationCommentsUseCase transformationCommentsUseCase;
 
+
     @PostMapping(value = "api/save/{commentsId}/{userId}/{contents}")
-    public String save(@PathVariable("CommentsId")String commentsId,
-                       @PathVariable("UserId")String userId,
-                       @PathVariable("Contents")String contents){
+    public String save(@PathVariable("commentsId")String commentsId,
+                       @PathVariable("userId")String userId,
+                       @PathVariable("contents")String contents){
 
     var command = new CreateComments(CommentsId.of(commentsId),UserId.of(userId),new Contents(contents));
     CreatedCommentsUseCase.Response commentsCreated = executedUseCase(command);
 
         String string="{"
                 + "\"commentsId\":" + "\""+commentsCreated.getResponse().identity()+"\""+ ","
-                + "\"userId\":" + "\""+commentsCreated.getResponse().getUserId()+"\""+ ","
-                + "\"contents\":" + "\""+commentsCreated.getResponse().getContents()
+                + "\"userId\":" + "\""+commentsCreated.getResponse().getUserId().value()+"\""+ ","
+                + "\"contents\":" + "\""+commentsCreated.getResponse().getContents().value()
                 +"}";
         return string;
     }

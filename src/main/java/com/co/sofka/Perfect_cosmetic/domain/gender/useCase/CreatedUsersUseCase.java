@@ -1,4 +1,4 @@
-/*package com.co.sofka.Perfect_cosmetic.domain.gender.useCase;
+package com.co.sofka.Perfect_cosmetic.domain.gender.useCase;
 
 
 import co.com.sofka.business.generic.UseCase;
@@ -6,10 +6,11 @@ import co.com.sofka.business.support.RequestCommand;
 import com.co.sofka.Perfect_cosmetic.domain.gender.commands.CreateUsers;
 import com.co.sofka.Perfect_cosmetic.domain.gender.entity.Users;
 import com.co.sofka.Perfect_cosmetic.domain.gender.repository.IUserDataRepository;
+import com.co.sofka.Perfect_cosmetic.domain.gender.repository.UsersData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service
+ @Service
 public class CreatedUsersUseCase extends UseCase<RequestCommand<CreateUsers>, CreatedUsersUseCase.Response> {
 
     @Autowired
@@ -18,11 +19,14 @@ public class CreatedUsersUseCase extends UseCase<RequestCommand<CreateUsers>, Cr
     @Override
     public void executeUseCase(RequestCommand<CreateUsers> createUsersRequestCommand){
         var command = createUsersRequestCommand.getCommand();
-        System.out.println("este es el caso de uso bajo command"+command.UsersId()+command.NameUser()+command.Email());
-        var users = new Users(command.UsersId(), command.NameUser(),command.Email());
-        System.out.println("este es el caso de uso bajo users"+users.getUsersId()+users.getNameUser()+users.getEmail());
-        iUserDataRepository.save(users);
+        var users = new Users(command.UsersId(),command.NameUser(),command.Email());
+        iUserDataRepository.save(transform(users));
         emit().onResponse(new Response(users));
+    }
+
+    public UsersData transform(Users users){
+        UsersData usersData = new UsersData(users.getIdUsers(),users.getUsersId().value(),users.getNameUser().value(),users.getEmail().value());
+        return usersData;
     }
 
     public static class Response implements UseCase.ResponseValues {
@@ -43,4 +47,4 @@ public class CreatedUsersUseCase extends UseCase<RequestCommand<CreateUsers>, Cr
         }
     }
 
-}*/
+}

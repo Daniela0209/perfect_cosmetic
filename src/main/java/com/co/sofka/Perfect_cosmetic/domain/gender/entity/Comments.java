@@ -11,17 +11,17 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Comments extends Entity<CommentsId> {
 
  @Id
- protected String IdComments;
-
+ protected String idComments;
  protected UserId userId;
  protected Contents contents;
 
 
     public Comments(CommentsId entityId,UserId userId, Contents contents) {
         super(entityId);
-        this.IdComments =  entityId.value();
+        this.idComments =  entityId.value();
         this.userId = userId;
         this.contents = contents;
+
     }
 
 
@@ -35,10 +35,10 @@ public class Comments extends Entity<CommentsId> {
     }
 
     public String getIdComments() {
-        return IdComments;
+        return idComments;
     }
 
     public void setIdComments(String idComments) {
-        IdComments = idComments;
+        idComments = idComments;
     }
 }

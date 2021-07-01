@@ -17,6 +17,7 @@ public class CreateUsers implements Command {
         this.email = email;
     }
 
+
     public UsersId UsersId() {
         return usersId;
     }
@@ -28,4 +29,6 @@ public class CreateUsers implements Command {
     public Email Email() {
         return email;
     }
+
+
 }

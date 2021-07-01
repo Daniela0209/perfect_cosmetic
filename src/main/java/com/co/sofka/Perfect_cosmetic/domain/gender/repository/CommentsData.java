@@ -8,30 +8,30 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class CommentsData {
 
     @Id
-    protected String IdComments;
-
+    protected String idComments;
     protected String userId;
     protected String contents;
 
-    public CommentsData(String idComments, String userId, String contents) {
-        this.IdComments = idComments;
 
+    public CommentsData(String idComments, String userId, String contents) {
+        idComments = idComments;
         this.userId = userId;
         this.contents = contents;
     }
+
+
 
     public CommentsData(){
 
     }
 
     public String getIdComments() {
-        return IdComments;
+        return idComments;
     }
 
     public void setIdComments(String idComments) {
-        IdComments = idComments;
+        idComments = idComments;
     }
-
 
     public String getUserId() {
         return userId;
@@ -48,4 +48,6 @@ public class CommentsData {
     public void setContents(String contents) {
         this.contents = contents;
     }
+
+
 }
