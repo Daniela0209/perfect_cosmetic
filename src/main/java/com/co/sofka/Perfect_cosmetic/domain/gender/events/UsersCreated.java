@@ -1,9 +1,10 @@
 package com.co.sofka.Perfect_cosmetic.domain.gender.events;
 
 import co.com.sofka.domain.generic.DomainEvent;
+import com.co.sofka.Perfect_cosmetic.domain.gender.values.UsersId;
 import com.co.sofka.Perfect_cosmetic.domain.gender.values.Email;
 import com.co.sofka.Perfect_cosmetic.domain.gender.values.NameUser;
-import com.co.sofka.Perfect_cosmetic.domain.gender.values.UsersId;
+
 
 public class UsersCreated extends DomainEvent {
 

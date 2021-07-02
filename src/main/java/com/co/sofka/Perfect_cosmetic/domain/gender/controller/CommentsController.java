@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.*;
 public class CommentsController {
 
     @Autowired
-    private CreatedCommentsUseCase useCase;
+    private CreatedCommentsUseCase createdCommentsUseCase;
 
 
     @Autowired
@@ -42,7 +42,7 @@ public class CommentsController {
     }
     private CreatedCommentsUseCase.Response executedUseCase(CreateComments command){
         var events = UseCaseHandler.getInstance()
-                .syncExecutor(useCase, new RequestCommand<>(command))
+                .syncExecutor(createdCommentsUseCase, new RequestCommand<>(command))
                 .orElseThrow();
         var CommandCreated = events;
         return CommandCreated;

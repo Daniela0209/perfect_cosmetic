@@ -14,6 +14,7 @@ public class TransformationCommentsUseCase {
     public ICommentsDataRepository data;
 
     public CommentsData transform(Comments comments) {
+
         CommentsData commentsData = new CommentsData(comments.getIdComments(), comments.getUserId().value(), comments.getContents().value());
         return commentsData;
     }

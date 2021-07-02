@@ -6,6 +6,7 @@ import com.co.sofka.Perfect_cosmetic.domain.gender.values.Contents;
 import com.co.sofka.Perfect_cosmetic.domain.gender.values.UserId;
 
 public class CreateComments implements Command {
+
     private final CommentsId commentsId;
     private final UserId userId;
     private final Contents contents;

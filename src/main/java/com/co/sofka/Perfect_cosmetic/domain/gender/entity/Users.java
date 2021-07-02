@@ -19,10 +19,11 @@ public class Users extends Entity<UsersId> {
 
     public Users(UsersId entityId, NameUser nameUser, Email email) {
         super(entityId);
+        this.idUsers = entityId.value();
         this.usersId = usersId;
         this.nameUser = nameUser;
         this.email = email;
-        this.idUsers = entityId.value();
+
     }
 
     public String getIdUsers() {
@@ -42,7 +43,7 @@ public class Users extends Entity<UsersId> {
     }
 
     public void setIdUsers(String idUsers) {
-        this.idUsers = idUsers;
+        idUsers = idUsers;
     }
 }
 

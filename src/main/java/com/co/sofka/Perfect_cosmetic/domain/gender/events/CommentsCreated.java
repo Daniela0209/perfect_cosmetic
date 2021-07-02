@@ -14,7 +14,7 @@ public class CommentsCreated extends DomainEvent {
 
 
     public CommentsCreated(CommentsId commentsId, UserId userId, Contents contents) {
-        super("Perfectcosmetic.comments.create");
+        super("comments.create");
         this.commentsId = commentsId;
         this.userId = userId;
         this.contents = contents;

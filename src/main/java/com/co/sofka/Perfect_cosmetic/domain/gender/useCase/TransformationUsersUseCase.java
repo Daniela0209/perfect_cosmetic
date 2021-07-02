@@ -2,8 +2,8 @@ package com.co.sofka.Perfect_cosmetic.domain.gender.useCase;
 
 
 import com.co.sofka.Perfect_cosmetic.domain.gender.entity.Users;
-import com.co.sofka.Perfect_cosmetic.domain.gender.repository.IUserDataRepository;
 import com.co.sofka.Perfect_cosmetic.domain.gender.repository.UsersData;
+import com.co.sofka.Perfect_cosmetic.domain.gender.repository.IUserDataRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

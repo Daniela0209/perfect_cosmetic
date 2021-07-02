@@ -23,7 +23,7 @@ public class UsersController {
     @Autowired
     private TransformationUsersUseCase transformationUsersUseCase;
 
-    @PostMapping(value = "api/user/{usersId}/{nameUser}/{email}")
+    @PostMapping(value = "api/user/{usersid}/{nameuser}/{email}")
     public String save(@PathVariable("usersId") String usersId,
                        @PathVariable("nameUser") String nameUser,
                        @PathVariable("email") String email) {
@@ -33,8 +33,8 @@ public class UsersController {
 
         String string = "{"
                 + "\"usersId\":" + "\"" + userCreated.getResponse().identity() + "\"" + ","
-                + "\"nameUser\":" + "\"" + userCreated.getResponse().getNameUser() + "\"" + ","
-                + "\"email\":" + "\"" + userCreated.getResponse().getEmail() + "}";
+                + "\"nameUser\":" + "\"" + userCreated.getResponse().getNameUser().value() + "\"" + ","
+                + "\"email\":" + "\"" + userCreated.getResponse().getEmail().value() + "}";
         return string;
 
     }

@@ -5,22 +5,22 @@ import co.com.sofka.business.generic.UseCase;
 import co.com.sofka.business.support.RequestCommand;
 import com.co.sofka.Perfect_cosmetic.domain.gender.commands.CreateUsers;
 import com.co.sofka.Perfect_cosmetic.domain.gender.entity.Users;
-import com.co.sofka.Perfect_cosmetic.domain.gender.repository.IUserDataRepository;
 import com.co.sofka.Perfect_cosmetic.domain.gender.repository.UsersData;
+import com.co.sofka.Perfect_cosmetic.domain.gender.repository.IUserDataRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
- @Service
+@Service
 public class CreatedUsersUseCase extends UseCase<RequestCommand<CreateUsers>, CreatedUsersUseCase.Response> {
 
     @Autowired
-    private IUserDataRepository iUserDataRepository;
+    private IUserDataRepository data;
 
     @Override
     public void executeUseCase(RequestCommand<CreateUsers> createUsersRequestCommand){
         var command = createUsersRequestCommand.getCommand();
         var users = new Users(command.UsersId(),command.NameUser(),command.Email());
-        iUserDataRepository.save(transform(users));
+        data.save(transform(users));
         emit().onResponse(new Response(users));
     }
 
