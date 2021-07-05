@@ -18,15 +18,15 @@ public class CreateUsers implements Command {
     }
 
 
-    public UsersId UsersId() {
+    public UsersId usersId() {
         return usersId;
     }
 
-    public NameUser NameUser() {
+    public NameUser nameUser() {
         return nameUser;
     }
 
-    public Email Email() {
+    public Email email() {
         return email;
     }
 

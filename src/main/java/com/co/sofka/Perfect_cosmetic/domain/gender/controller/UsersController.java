@@ -18,38 +18,40 @@ import org.springframework.web.bind.annotation.*;
 public class UsersController {
 
     @Autowired
-    private CreatedUsersUseCase useCase;
+    private CreatedUsersUseCase createdUsersUseCase;
 
     @Autowired
     private TransformationUsersUseCase transformationUsersUseCase;
 
-    @PostMapping(value = "api/user/{usersid}/{nameuser}/{email}")
-    public String save(@PathVariable("usersId") String usersId,
+
+    @PostMapping(value = "api/list/{usersId}/{nameUser}/{email}")
+    public String list(@PathVariable("usersId") String usersId,
                        @PathVariable("nameUser") String nameUser,
-                       @PathVariable("email") String email) {
+                       @PathVariable("email") String email){
 
         var command = new CreateUsers(UsersId.of(usersId), new NameUser(nameUser), new Email(email));
-        CreatedUsersUseCase.Response userCreated = executedUseCase(command);
+        CreatedUsersUseCase.Response usersCreated = executedUseCase(command);
 
-        String string = "{"
-                + "\"usersId\":" + "\"" + userCreated.getResponse().identity() + "\"" + ","
-                + "\"nameUser\":" + "\"" + userCreated.getResponse().getNameUser().value() + "\"" + ","
-                + "\"email\":" + "\"" + userCreated.getResponse().getEmail().value() + "}";
+
+        String string="{"
+                + "\"usersId\":" + "\""+usersCreated.getResponse().identity()+"\""+ ","
+                + "\"nameUser\":" + "\""+usersCreated.getResponse().getNameUser().value()+"\""+ ","
+                + "\"email\":" + "\""+usersCreated.getResponse().getEmail().value()
+                +"}";
         return string;
-
     }
 
-    private CreatedUsersUseCase.Response executedUseCase(CreateUsers command) {
+    private CreatedUsersUseCase.Response executedUseCase(CreateUsers command){
         var events = UseCaseHandler.getInstance()
-                .syncExecutor(useCase, new RequestCommand<>(command))
+                .syncExecutor(createdUsersUseCase, new RequestCommand<>(command))
                 .orElseThrow();
-
         var UsersCreated = events;
         return UsersCreated;
     }
-
     @GetMapping(value = "api/users")
-    public Iterable<UsersData> save() {
-        return (transformationUsersUseCase.save());
+    public Iterable<UsersData>list(){
+        return (transformationUsersUseCase.list());
     }
-}
+
+    }
+

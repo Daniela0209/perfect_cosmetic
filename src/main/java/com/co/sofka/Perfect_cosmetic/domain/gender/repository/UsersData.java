@@ -1,6 +1,7 @@
 package com.co.sofka.Perfect_cosmetic.domain.gender.repository;
 
 
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -13,14 +14,12 @@ public class UsersData {
     protected String nameUser;
     protected String email;
 
-
     public UsersData(String idUsers, String usersId, String nameUser, String email) {
-        idUsers = idUsers;
+        this.idUsers = idUsers;
         this.usersId = usersId;
         this.nameUser = nameUser;
         this.email = email;
     }
-
 
     public UsersData(){
 
@@ -31,7 +30,7 @@ public class UsersData {
     }
 
     public void setIdUsers(String idUsers) {
-        idUsers = idUsers;
+                idUsers = idUsers;
     }
 
     public String getUsersId() {
@@ -58,4 +57,3 @@ public class UsersData {
         this.email = email;
     }
 }
-
