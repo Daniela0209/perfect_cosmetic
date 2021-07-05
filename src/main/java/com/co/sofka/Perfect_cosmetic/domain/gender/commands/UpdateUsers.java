@@ -1,23 +1,25 @@
-package com.co.sofka.Perfect_cosmetic.domain.gender.events;
+package com.co.sofka.Perfect_cosmetic.domain.gender.commands;
 
-import co.com.sofka.domain.generic.DomainEvent;
-import com.co.sofka.Perfect_cosmetic.domain.gender.values.UsersId;
+import co.com.sofka.domain.generic.Command;
 import com.co.sofka.Perfect_cosmetic.domain.gender.values.Email;
 import com.co.sofka.Perfect_cosmetic.domain.gender.values.NameUser;
+import com.co.sofka.Perfect_cosmetic.domain.gender.values.UsersId;
 
 
-public class UsersCreated extends DomainEvent {
+public class UpdateUsers implements Command {
+
 
     private final UsersId usersId;
     private final NameUser nameUser;
     private final Email email;
 
-    public UsersCreated(UsersId usersId, NameUser nameUser, Email email) {
-        super("users.create");
+    public UpdateUsers( UsersId usersId, NameUser nameUser, Email email) {
         this.usersId = usersId;
         this.nameUser = nameUser;
         this.email = email;
     }
+
+
 
     public UsersId usersId() {
         return usersId;

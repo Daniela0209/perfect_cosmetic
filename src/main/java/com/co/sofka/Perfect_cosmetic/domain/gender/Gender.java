@@ -6,23 +6,32 @@ import com.co.sofka.Perfect_cosmetic.domain.gender.values.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collation = "Genero")
+@Document(collection = "Genero")
 public class Gender extends AggregateRoot<GenderId> {
 
     @Id
+    protected String idGender;
     protected Feminine feminine;
     protected Male male;
     protected Other other;
     protected UserGender userGender;
 
 
-    public Gender(GenderId genderId, Feminine feminine, Male male, Other other, UserGender userGender){
-        super(genderId);
+    public Gender(GenderId entityId, Feminine feminine, Male male, Other other, UserGender userGender) {
+        super(entityId);
+        this.idGender = entityId.value();
         this.feminine = feminine;
         this.male = male;
         this.other = other;
-        this.userGender = this.userGender;
+        this.userGender = userGender;
+    }
 
+    public String getIdGender() {
+        return idGender;
+    }
+
+    public void setIdGender(String idGender) {
+        this.idGender = idGender;
     }
 
     public Feminine getFeminine() {

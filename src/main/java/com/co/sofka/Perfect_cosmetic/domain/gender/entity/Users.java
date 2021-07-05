@@ -12,6 +12,7 @@ public class Users extends Entity<UsersId> {
 
     @Id
     protected String idUsers;
+
     protected UsersId usersId;
     protected NameUser nameUser;
     protected Email email;
@@ -43,7 +44,7 @@ public class Users extends Entity<UsersId> {
     }
 
     public void setIdUsers(String idUsers) {
-        idUsers = idUsers;
+        this.idUsers = idUsers;
     }
 }
 

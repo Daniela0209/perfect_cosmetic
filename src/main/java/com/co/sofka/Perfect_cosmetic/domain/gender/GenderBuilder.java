@@ -5,8 +5,8 @@ import com.co.sofka.Perfect_cosmetic.domain.gender.values.Male;
 import com.co.sofka.Perfect_cosmetic.domain.gender.values.Other;
 import com.co.sofka.Perfect_cosmetic.domain.gender.values.UserGender;
 
-
 public final class GenderBuilder {
+    protected String idGender;
     protected Feminine feminine;
     protected Male male;
     protected Other other;
@@ -17,6 +17,11 @@ public final class GenderBuilder {
 
     public static GenderBuilder aGender() {
         return new GenderBuilder();
+    }
+
+    public GenderBuilder withIdGender(String idGender) {
+        this.idGender = idGender;
+        return this;
     }
 
     public GenderBuilder withFeminine(Feminine feminine) {
@@ -40,6 +45,8 @@ public final class GenderBuilder {
     }
 
     public Gender build() {
-        return new Gender(null, feminine, male, other, userGender);
+        Gender gender = new Gender(null, feminine, male, other, userGender);
+        gender.setIdGender(idGender);
+        return gender;
     }
 }

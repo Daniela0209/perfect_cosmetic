@@ -1,7 +1,12 @@
 package com.co.sofka.Perfect_cosmetic.domain.gender.commands;
 
 import co.com.sofka.domain.generic.Command;
-import com.co.sofka.Perfect_cosmetic.domain.gender.values.*;
+import com.co.sofka.Perfect_cosmetic.domain.gender.values.Feminine;
+import com.co.sofka.Perfect_cosmetic.domain.gender.values.GenderId;
+import com.co.sofka.Perfect_cosmetic.domain.gender.values.Male;
+import com.co.sofka.Perfect_cosmetic.domain.gender.values.Other;
+import com.co.sofka.Perfect_cosmetic.domain.gender.values.UserGender;
+
 
 public class CreateGender implements Command {
 
@@ -11,6 +16,7 @@ public class CreateGender implements Command {
     private final Other other;
     private final UserGender userGender;
 
+
     public CreateGender(GenderId genderId, Feminine feminine, Male male, Other other, UserGender userGender) {
         this.genderId = genderId;
         this.feminine = feminine;
@@ -19,24 +25,23 @@ public class CreateGender implements Command {
         this.userGender = userGender;
     }
 
-
-    public GenderId GenderId() {
+    public GenderId genderId() {
         return genderId;
     }
 
-    public Feminine Feminine() {
+    public Feminine feminine() {
         return feminine;
     }
 
-    public Male Male() {
+    public Male male() {
         return male;
     }
 
-    public Other Other() {
+    public Other other() {
         return other;
     }
 
-    public UserGender UserGender() {
+    public UserGender userGender() {
         return userGender;
     }
 }

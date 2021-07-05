@@ -3,9 +3,7 @@ package com.co.sofka.Perfect_cosmetic.domain.gender.events;
 import co.com.sofka.domain.generic.DomainEvent;
 import com.co.sofka.Perfect_cosmetic.domain.gender.values.*;
 
-import java.util.UUID;
-
-public class GenderCreated extends DomainEvent {
+public class UsersUpdated extends DomainEvent {
 
     private final GenderId genderId;
     private final Feminine feminine;
@@ -13,8 +11,9 @@ public class GenderCreated extends DomainEvent {
     private final Other other;
     private final UserGender userGender;
 
-    public GenderCreated( GenderId genderId, Feminine feminine, Male male, Other other, UserGender userGender) {
-        super("gender.create");
+
+    public UsersUpdated(GenderId genderId, Feminine feminine, Male male, Other other, UserGender userGender) {
+        super("users.updated");
         this.genderId = genderId;
         this.feminine = feminine;
         this.male = male;
