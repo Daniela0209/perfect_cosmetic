@@ -21,4 +21,14 @@ public class TransformationUserPageUseCase {
     public Iterable<UserPageData> searchUsers(){
         return data.findAll();
     }
+
+    public String delete(String id) {
+
+        try {
+            data.deleteById(id);
+            return "usuario eliminado exitosamente";
+        } catch (Exception e) {
+            return "No se pudo eliminar el usuario correctamente";
+        }
+    }
 }

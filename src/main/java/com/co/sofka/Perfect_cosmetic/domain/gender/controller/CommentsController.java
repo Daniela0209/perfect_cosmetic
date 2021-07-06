@@ -52,4 +52,8 @@ public class CommentsController {
     public Iterable<CommentsData> investigate() {
         return (transformationCommentsUseCase.investigate());
     }
+    @DeleteMapping(value = "api/deleteComment/{id}")
+    public String delete(@PathVariable("id")String id){
+        return (transformationCommentsUseCase.delete(id));
+    }
 }

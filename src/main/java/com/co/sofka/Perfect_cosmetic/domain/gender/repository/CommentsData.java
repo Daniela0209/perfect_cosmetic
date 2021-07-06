@@ -14,7 +14,7 @@ public class CommentsData {
 
 
     public CommentsData(String idComments, String userId, String contents) {
-        idComments = idComments;
+        this.idComments = idComments;
         this.userId = userId;
         this.contents = contents;
     }
@@ -29,7 +29,7 @@ public class CommentsData {
     }
 
     public void setIdComments(String idComments) {
-        idComments = idComments;
+        this.idComments = idComments;
     }
 
     public String getUserId() {

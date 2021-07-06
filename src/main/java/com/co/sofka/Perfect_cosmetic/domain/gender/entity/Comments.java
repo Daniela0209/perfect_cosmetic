@@ -41,6 +41,6 @@ public class Comments extends Entity<CommentsId> {
     }
 
     public void setIdComments(String idComments) {
-        idComments = idComments;
+        this.idComments = idComments;
     }
 }

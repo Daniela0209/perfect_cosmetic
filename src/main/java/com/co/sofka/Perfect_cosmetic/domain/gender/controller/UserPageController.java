@@ -52,6 +52,10 @@ public class UserPageController {
         return(transformationUserPageUseCase.searchUsers());
     }
 
-    }
 
+    @DeleteMapping(value = "api/deleteUser/{id}")
+    public String delete(@PathVariable("id") String id){
+    return  (transformationUserPageUseCase.delete(id));
+}
 
+}

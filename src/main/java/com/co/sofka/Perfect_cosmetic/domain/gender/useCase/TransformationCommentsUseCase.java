@@ -18,7 +18,18 @@ public class TransformationCommentsUseCase {
         CommentsData commentsData = new CommentsData(comments.getIdComments(), comments.getUserId().value(), comments.getContents().value());
         return commentsData;
     }
+
     public Iterable<CommentsData> investigate() {
         return data.findAll();
     }
+
+    public String delete(String id) {
+
+        try {
+            data.deleteById(id);
+            return "comentario eliminado exitosamente";
+        } catch (Exception e) {
+            return "No se pudo eliminar el comentario correctamente";
+        }
     }
+}
