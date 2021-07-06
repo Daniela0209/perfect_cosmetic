@@ -7,7 +7,7 @@ import com.co.sofka.Perfect_cosmetic.domain.gender.commands.CreateUsers;
 import com.co.sofka.Perfect_cosmetic.domain.gender.events.UsersCreated;
 import com.co.sofka.Perfect_cosmetic.domain.gender.values.Email;
 import com.co.sofka.Perfect_cosmetic.domain.gender.values.NameUser;
-import com.co.sofka.Perfect_cosmetic.domain.gender.values.UsersId;
+import com.co.sofka.Perfect_cosmetic.domain.gender.values.UserPageId;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -17,11 +17,11 @@ class CreatedUsersUseCaseTest {
 
     public void CreateUsersTest(){
 
-        var command = new CreateUsers(UsersId.of("0"),new NameUser("Daniela"),new Email("Grajalesdaniela253@gmail.com"));
+        var command = new CreateUsers(UserPageId.of("0"),new NameUser("Daniela"),new Email("Grajalesdaniela253@gmail.com"));
 
         UsersCreated usersCreated = executeUseCase(command);
 
-        Assertions.assertEquals("0", usersCreated.UsersId().value());
+        Assertions.assertEquals("0", usersCreated.UserPageId().value());
     }
 
     private UsersCreated executeUseCase(CreateUsers command){
