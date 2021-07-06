@@ -64,6 +64,7 @@ public class CommentsController {
                 + "\"userId\":" + "\""+commentsUpdate.getResponse().getUserId().value()+"\""+ ","
                 + "\"contents\":" + "\""+commentsUpdate.getResponse().getContents().value()
                 +"}";
+
         return string;
     }
 
