@@ -8,14 +8,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class TransformatioGenderUseCase {
+public class TransformationGenderUseCase {
 
     @Autowired
     private IGenderDataRepository data;
 
     public GenderData transform(Gender gender) {
-        GenderData genderData = new GenderData(gender.getIdGender(), gender.getFeminine().value(), gender.getMale().value(), gender.getOther().value(), gender.getUserGender().value());
-        return (genderData);
+        GenderData genderData = new GenderData(gender.getIdGender(), gender.getGenderUser().value(),gender.getUsername().value());
+        return genderData;
     }
     public Iterable<GenderData> select(){
         return data.findAll();

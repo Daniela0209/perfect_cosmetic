@@ -1,10 +1,5 @@
 package com.co.sofka.Perfect_cosmetic.domain.gender.repository;
 
-
-import com.co.sofka.Perfect_cosmetic.domain.gender.values.Feminine;
-import com.co.sofka.Perfect_cosmetic.domain.gender.values.Male;
-import com.co.sofka.Perfect_cosmetic.domain.gender.values.Other;
-import com.co.sofka.Perfect_cosmetic.domain.gender.values.UserGender;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -13,20 +8,18 @@ public class GenderData {
 
     @Id
     protected String id;
-    protected String feminine;
-    protected String male;
-    protected String other;
-    protected String userGender;
+    protected String genderUser;
+    protected String userName;
 
-    public GenderData(String id, String feminine, String male, String other, String userGender) {
+    public GenderData(String id, String genderUser, String userName) {
         this.id = id;
-        this.feminine = feminine;
-        this.male = male;
-        this.other = other;
-        this.userGender = userGender;
+        this.genderUser = genderUser;
+        this.userName = userName;
     }
 
-    public GenderData(){}
+    public GenderData(){
+
+    }
 
     public String getId() {
         return id;
@@ -36,36 +29,20 @@ public class GenderData {
         this.id = id;
     }
 
-    public String getFeminine() {
-        return feminine;
+    public String getGenderUser() {
+        return genderUser;
     }
 
-    public void setFeminine(String feminine) {
-        this.feminine = feminine;
+    public void setGenderUser(String genderUser) {
+        this.genderUser = genderUser;
     }
 
-    public String getMale() {
-        return male;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setMale(String male) {
-        this.male = male;
-    }
-
-    public String getOther() {
-        return other;
-    }
-
-    public void setOther(String other) {
-        this.other = other;
-    }
-
-    public String getUserGender() {
-        return userGender;
-    }
-
-    public void setUserGender(String userGender) {
-        this.userGender = userGender;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 }
 

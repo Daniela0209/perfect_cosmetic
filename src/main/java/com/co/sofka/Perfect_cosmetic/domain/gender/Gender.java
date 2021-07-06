@@ -1,29 +1,25 @@
 package com.co.sofka.Perfect_cosmetic.domain.gender;
 
-
 import co.com.sofka.domain.generic.AggregateRoot;
-import com.co.sofka.Perfect_cosmetic.domain.gender.values.*;
+import com.co.sofka.Perfect_cosmetic.domain.gender.values.GenderId;
+import com.co.sofka.Perfect_cosmetic.domain.gender.values.GenderUser;
+import com.co.sofka.Perfect_cosmetic.domain.gender.values.UserName;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "Genero")
+@Document(collection = "Gender")
 public class Gender extends AggregateRoot<GenderId> {
 
     @Id
     protected String idGender;
-    protected Feminine feminine;
-    protected Male male;
-    protected Other other;
-    protected UserGender userGender;
+    protected GenderUser genderUser;
+    protected UserName username;
 
-
-    public Gender(GenderId entityId, Feminine feminine, Male male, Other other, UserGender userGender) {
+    public Gender(GenderId entityId, GenderUser genderUser, UserName username) {
         super(entityId);
         this.idGender = entityId.value();
-        this.feminine = feminine;
-        this.male = male;
-        this.other = other;
-        this.userGender = userGender;
+        this.genderUser = genderUser;
+        this.username = username;
     }
 
     public String getIdGender() {
@@ -34,19 +30,11 @@ public class Gender extends AggregateRoot<GenderId> {
         this.idGender = idGender;
     }
 
-    public Feminine getFeminine() {
-        return feminine;
+    public GenderUser getGenderUser() {
+        return genderUser;
     }
 
-    public Male getMale() {
-        return male;
-    }
-
-    public Other getOther() {
-        return other;
-    }
-
-    public UserGender getUserGender() {
-        return userGender;
+    public UserName getUsername() {
+        return username;
     }
 }

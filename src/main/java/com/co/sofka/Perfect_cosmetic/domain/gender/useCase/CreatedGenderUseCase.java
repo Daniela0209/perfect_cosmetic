@@ -20,13 +20,13 @@ public class CreatedGenderUseCase extends UseCase<RequestCommand<CreateGender>, 
 
     public void executeUseCase(RequestCommand<CreateGender> createGenderRequestCommand){
         var command = createGenderRequestCommand.getCommand();
-        var gender = new Gender(command.genderId(),command.feminine(),command.male(),command.other(),command.userGender());
+        var gender = new Gender(command.genderId(),command.genderUser(),command.username());
         data.save(transform(gender));
         emit().onResponse(new Response(gender));
     }
 
         public GenderData transform(Gender gender){
-                GenderData genderData = new GenderData(gender.getIdGender(),gender.getFeminine().value(),gender.getMale().value(),gender.getOther().value(),gender.getUserGender().value());
+                GenderData genderData = new GenderData(gender.getIdGender(),gender.getGenderUser().value(),gender.getUsername().value());
                 return genderData;
         }
 
