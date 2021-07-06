@@ -13,6 +13,7 @@ public class UserPage extends Entity<UserPageId> {
 
     @Id
     protected String idUserPage;
+
     protected NameUser nameUser;
     protected Email email;
 

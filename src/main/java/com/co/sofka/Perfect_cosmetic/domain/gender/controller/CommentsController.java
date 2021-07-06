@@ -4,9 +4,11 @@ package com.co.sofka.Perfect_cosmetic.domain.gender.controller;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.support.RequestCommand;
 import com.co.sofka.Perfect_cosmetic.domain.gender.commands.CreateComments;
+import com.co.sofka.Perfect_cosmetic.domain.gender.commands.UpdateComments;
 import com.co.sofka.Perfect_cosmetic.domain.gender.repository.CommentsData;
 import com.co.sofka.Perfect_cosmetic.domain.gender.useCase.CreatedCommentsUseCase;
 import com.co.sofka.Perfect_cosmetic.domain.gender.useCase.TransformationCommentsUseCase;
+import com.co.sofka.Perfect_cosmetic.domain.gender.useCase.UpdateCommentsUseCase;
 import com.co.sofka.Perfect_cosmetic.domain.gender.values.CommentsId;
 import com.co.sofka.Perfect_cosmetic.domain.gender.values.Contents;
 import com.co.sofka.Perfect_cosmetic.domain.gender.values.UserId;
@@ -20,6 +22,8 @@ public class CommentsController {
     @Autowired
     private CreatedCommentsUseCase createdCommentsUseCase;
 
+    @Autowired
+    private UpdateCommentsUseCase updateCommentsUseCase;
 
     @Autowired
     private TransformationCommentsUseCase transformationCommentsUseCase;
@@ -46,6 +50,30 @@ public class CommentsController {
                 .orElseThrow();
         var CommandCreated = events;
         return CommandCreated;
+    }
+
+    @PutMapping(value = "api/actualizar/{commentsId}/{userId}/{contents}")
+    public String update(@PathVariable("commentsId")String commentsId,
+                         @PathVariable("userId")String userId,
+                         @PathVariable("contents")String contents){
+        var command = new UpdateComments(CommentsId.of(commentsId),new UserId(userId),new Contents(contents));
+        UpdateCommentsUseCase.Response commentsUpdate = executedUseCase(command);
+
+        String string="{"
+                + "\"commentsId\":" + "\""+commentsUpdate.getResponse().identity()+"\""+ ","
+                + "\"userId\":" + "\""+commentsUpdate.getResponse().getUserId().value()+"\""+ ","
+                + "\"contents\":" + "\""+commentsUpdate.getResponse().getContents().value()
+                +"}";
+        return string;
+    }
+
+    private UpdateCommentsUseCase.Response executedUseCase(UpdateComments command){
+        var events = UseCaseHandler.getInstance()
+                .syncExecutor(updateCommentsUseCase, new RequestCommand<>(command))
+                .orElseThrow();
+        var CommentsUpdated = events;
+        return (UpdateCommentsUseCase.Response) CommentsUpdated;
+
     }
 
     @GetMapping(value = "api/comments")

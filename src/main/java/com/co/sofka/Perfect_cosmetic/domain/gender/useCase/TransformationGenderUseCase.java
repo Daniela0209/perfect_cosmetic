@@ -17,6 +17,9 @@ public class TransformationGenderUseCase {
         GenderData genderData = new GenderData(gender.getIdGender(), gender.getGenderUser().value(),gender.getUsername().value());
         return genderData;
     }
+    public GenderData update(String id) {
+        return data.findById(id).orElseThrow(RuntimeException::new);
+    }
     public Iterable<GenderData> select(){
         return data.findAll();
     }
