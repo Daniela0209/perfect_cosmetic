@@ -20,8 +20,8 @@ public class CreatedUserPageUseCase extends UseCase<RequestCommand<CreateUserPag
 
    @Override
     public void executeUseCase(RequestCommand<CreateUserPage> createUserPageRequestCommand) {
-        var command = createUserPageRequestCommand.getCommand();
-        var userPage = new UserPage(command.userPageId(),command.nameUser(),command.email());
+       CreateUserPage command = createUserPageRequestCommand.getCommand();
+       UserPage userPage = new UserPage(command.userPageId(),command.nameUser(),command.email());
         data.save(transform(userPage));
         emit().onResponse(new Response(userPage));
 

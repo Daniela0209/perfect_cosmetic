@@ -27,7 +27,7 @@ public class UserPageController {
     public String save(@PathVariable("userPageId") String userPageId,
                        @PathVariable("nameUser")String nameUser,
                        @PathVariable("email")String email){
-        var command = new CreateUserPage(UserPageId.of(userPageId), new NameUser(nameUser),new Email(email));
+        CreateUserPage command = new CreateUserPage(UserPageId.of(userPageId), new NameUser(nameUser),new Email(email));
         CreatedUserPageUseCase.Response userPageCreated = executedUseCase(command);
 
         String string = "{"
@@ -40,10 +40,10 @@ public class UserPageController {
     }
 
     private CreatedUserPageUseCase.Response executedUseCase(CreateUserPage command){
-        var events = UseCaseHandler.getInstance()
+        CreatedUserPageUseCase.Response events = UseCaseHandler.getInstance()
                 .syncExecutor(createdUserPageUseCase, new RequestCommand<>(command))
                 .orElseThrow();
-        var UserPageCreated = events;
+        CreatedUserPageUseCase.Response UserPageCreated = events;
         return UserPageCreated;
     }
 

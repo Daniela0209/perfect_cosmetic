@@ -34,7 +34,7 @@ public class CommentsController {
                        @PathVariable("userId")String userId,
                        @PathVariable("contents")String contents){
 
-    var command = new CreateComments(CommentsId.of(commentsId),UserId.of(userId),new Contents(contents));
+        CreateComments command = new CreateComments(CommentsId.of(commentsId),UserId.of(userId),new Contents(contents));
     CreatedCommentsUseCase.Response commentsCreated = executedUseCase(command);
 
         String string="{"
@@ -45,10 +45,10 @@ public class CommentsController {
         return string;
     }
     private CreatedCommentsUseCase.Response executedUseCase(CreateComments command){
-        var events = UseCaseHandler.getInstance()
+        CreatedCommentsUseCase.Response events = UseCaseHandler.getInstance()
                 .syncExecutor(createdCommentsUseCase, new RequestCommand<>(command))
                 .orElseThrow();
-        var CommandCreated = events;
+        CreatedCommentsUseCase.Response CommandCreated = events;
         return CommandCreated;
     }
 
@@ -56,7 +56,7 @@ public class CommentsController {
     public String update(@PathVariable("commentsId")String commentsId,
                          @PathVariable("userId")String userId,
                          @PathVariable("contents")String contents){
-        var command = new UpdateComments(CommentsId.of(commentsId),new UserId(userId),new Contents(contents));
+        UpdateComments command = new UpdateComments(CommentsId.of(commentsId),new UserId(userId),new Contents(contents));
         UpdateCommentsUseCase.Response commentsUpdate = executedUseCase(command);
 
         String string="{"
@@ -69,10 +69,10 @@ public class CommentsController {
     }
 
     private UpdateCommentsUseCase.Response executedUseCase(UpdateComments command){
-        var events = UseCaseHandler.getInstance()
+        UpdateCommentsUseCase.Response events = UseCaseHandler.getInstance()
                 .syncExecutor(updateCommentsUseCase, new RequestCommand<>(command))
                 .orElseThrow();
-        var CommentsUpdated = events;
+        UpdateCommentsUseCase.Response CommentsUpdated = events;
         return (UpdateCommentsUseCase.Response) CommentsUpdated;
 
     }

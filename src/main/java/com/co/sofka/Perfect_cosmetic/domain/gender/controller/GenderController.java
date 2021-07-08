@@ -29,7 +29,7 @@ public class GenderController {
     public String save(@PathVariable("genderId")String genderId,
                        @PathVariable("genderUser") String genderUser,
                        @PathVariable("username") String username){
-    var command = new CreateGender(GenderId.of(genderId),new GenderUser(genderUser), new UserName(username));
+        CreateGender command = new CreateGender(GenderId.of(genderId),new GenderUser(genderUser), new UserName(username));
     CreatedGenderUseCase.Response genderCreated = executedUseCase(command);
 
         String string = "{"
@@ -41,11 +41,11 @@ public class GenderController {
 
     }
     private CreatedGenderUseCase.Response executedUseCase(CreateGender command){
-    var events = UseCaseHandler.getInstance()
+        CreatedGenderUseCase.Response events = UseCaseHandler.getInstance()
             .syncExecutor(createdGenderUseCase, new RequestCommand<>(command))
             .orElseThrow();
 
-        var GenderCreated = events;
+        CreatedGenderUseCase.Response GenderCreated = events;
         return GenderCreated;
     }
 
@@ -53,7 +53,7 @@ public class GenderController {
     public String update(@PathVariable("genderId")String genderId,
                          @PathVariable("genderUser")String genderUser,
                          @PathVariable("username")String username){
-    var command = new UpdateGender(GenderId.of(genderId),new GenderUser(genderUser),new UserName(username));
+        UpdateGender command = new UpdateGender(GenderId.of(genderId),new GenderUser(genderUser),new UserName(username));
     UpdateGenderUseCase.Response genderUpdate = executedUseCase(command);
 
         String string = "{"
@@ -65,10 +65,10 @@ public class GenderController {
     }
 
     private UpdateGenderUseCase.Response executedUseCase(UpdateGender command) {
-        var events = UseCaseHandler.getInstance()
+        UpdateGenderUseCase.Response events = UseCaseHandler.getInstance()
                 .syncExecutor(updateGenderUseCase, new RequestCommand<>(command))
                 .orElseThrow();
-        var PersonUpdated = events;
+        UpdateGenderUseCase.Response PersonUpdated = events;
         return (UpdateGenderUseCase.Response) PersonUpdated;
     }
 

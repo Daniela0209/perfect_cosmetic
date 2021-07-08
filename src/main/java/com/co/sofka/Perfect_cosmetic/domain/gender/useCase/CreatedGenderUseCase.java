@@ -19,8 +19,8 @@ public class CreatedGenderUseCase extends UseCase<RequestCommand<CreateGender>, 
     @Override
 
     public void executeUseCase(RequestCommand<CreateGender> createGenderRequestCommand){
-        var command = createGenderRequestCommand.getCommand();
-        var gender = new Gender(command.genderId(),command.genderUser(),command.username());
+        CreateGender command = createGenderRequestCommand.getCommand();
+        Gender gender = new Gender(command.genderId(),command.genderUser(),command.username());
         data.save(transform(gender));
         emit().onResponse(new Response(gender));
     }
