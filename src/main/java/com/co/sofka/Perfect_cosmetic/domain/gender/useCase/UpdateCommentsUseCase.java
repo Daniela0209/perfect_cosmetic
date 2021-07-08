@@ -20,8 +20,8 @@ public class UpdateCommentsUseCase extends UseCase<RequestCommand<UpdateComments
     public void executeUseCase(RequestCommand<UpdateComments> updateCommentsRequestCommand) {
 
 
-        var command = updateCommentsRequestCommand.getCommand();
-        var comments = new Comments(command.commentsId(),command.userId(),command.contents());
+        UpdateComments command = updateCommentsRequestCommand.getCommand();
+        Comments comments = new Comments(command.commentsId(),command.userId(),command.contents());
         data.save(transform(comments));
         emit().onResponse(new Response(comments));
     }

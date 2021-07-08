@@ -19,8 +19,8 @@ public class UpdateGenderUseCase extends UseCase<RequestCommand<UpdateGender>, U
     @Override
     public void executeUseCase(RequestCommand<UpdateGender> updateGenderRequestCommand) {
 
-        var command = updateGenderRequestCommand.getCommand();
-        var gender = new Gender(command.genderId(), command.genderUser(), command.username());
+        UpdateGender command = updateGenderRequestCommand.getCommand();
+        Gender gender = new Gender(command.genderId(), command.genderUser(), command.username());
         data.save(transform(gender));
         emit().onResponse(new Response(gender));
 
